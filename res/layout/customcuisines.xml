@@ -4,14 +4,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-  
-
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:padding="10dp"
-        android:textColor="#4169e1" />
+        android:textColor="#0000cd"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:src="@drawable/arrow2"
+        android:layout_width="30dip"
+        android:layout_height="50dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/textName" >
+    </ImageView>
 
 </RelativeLayout>

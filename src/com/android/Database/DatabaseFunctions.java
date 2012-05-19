@@ -63,10 +63,11 @@ public class DatabaseFunctions {
 		return arrayCuisines;
 	}
 	
-	public ArrayList<RestaurantModel> retriveRestaurants(SQLiteDatabase db)
+	public ArrayList<RestaurantModel> retriveRestaurants(SQLiteDatabase db,String cuisineId)
 	{
 		ArrayList<RestaurantModel> arrayRestaurants=new ArrayList<RestaurantModel>();
-		Cursor cur=db.query("restaurants", new String[]{"cuisineId","name","address","cuisines","rating"}, null, null, null, null, null);
+		Cursor cur=db.query(true, "restaurants", new String[]{"cuisineId","name","address","cuisines","rating"},"cuisineId="+cuisineId,null, null, null, null, null);
+	//	Cursor cur=db.query("restaurants", new String[]{"cuisineId","name","address","cuisines","rating"}, null, null, null, null, null);
 
 		if(cur.moveToFirst())
 		{

@@ -20,7 +20,7 @@ public class MyHelper extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE cuisines (cuisineId TEXT,name TEXT);");
-		    db.execSQL("CREATE TABLE restaurants (cuisineId TEXT,name TEXT,address TEXT,cuisines TEXT,rating TEXT);");
+		    db.execSQL("CREATE TABLE restaurants (cuisineId TEXT primarykey,name TEXT,address TEXT,cuisines TEXT,rating TEXT);");
 								
 	}
 

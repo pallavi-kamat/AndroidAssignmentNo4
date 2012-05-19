@@ -11,7 +11,7 @@ import com.android.Models.RestaurantModel;
 public class RestaurantParser {
 	ArrayList<RestaurantModel> restaurantsArray;
 
-	public ArrayList<RestaurantModel> parseRestaurants(String strJsonReponse)
+	public ArrayList<RestaurantModel> parseRestaurants(String strJsonReponse,String cuisineId)
 	{
 
 		restaurantsArray=new ArrayList<RestaurantModel>();
@@ -26,7 +26,8 @@ public class RestaurantParser {
 				RestaurantModel r=new RestaurantModel();
 				JSONObject jObj=restaurantObj.getJSONObject(i);
 				JSONObject restaurant=jObj.getJSONObject("result");
-
+				
+				r.setCuisineId(cuisineId);
 				r.setName(restaurant.getString("name").toString());
 				r.setAddress(restaurant.getString("address").toString());
 				r.setCuisines(restaurant.getString("cuisines").toString());

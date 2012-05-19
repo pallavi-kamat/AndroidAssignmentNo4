@@ -53,22 +53,29 @@ public class SplashActivity extends Activity {
 
 	private void startApp() {
 		
-		Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				showprogress(true, "Loading", "In Process please wait...");
+		
+					
 				if (appStatus.isOnline(SplashActivity.this)) {
 					Log.v("SPLASH_SCREEN", "App is online");
 					if (appStatus.isRegistered()) {
 						Log.v("SPLASH_SCREEN", "App is registered!");
-						getCityInfo();
-//						SplashTask mSignInTask = new SplashTask(SplashActivity.this);
-//						mSignInTask.execute();
-						Intent intent = new Intent(SplashActivity.this,
-								CuisinesActivity.class);
-						intent.putExtra("cityId",cityId);
-						startActivity(intent);
-						finish();
+//						getCityInfo();
+						Thread t = new Thread(new Runnable() {
+							
+							public void run() {
+								showprogress(true, "Loading", "In Process please wait...");
+										}
+								});
+						
+									t.start();
+						SplashTask splashTask = new SplashTask(SplashActivity.this);
+						splashTask.execute();
+					
+//						Intent intent = new Intent(SplashActivity.this,
+//								CuisinesActivity.class);
+//						intent.putExtra("cityId",cityId);
+//						startActivity(intent);
+//						finish();
 					} 
 					/*else {
 						Log.v("SPLASH_SCREEN", "You are not registered!!!!");
@@ -77,50 +84,53 @@ public class SplashActivity extends Activity {
 						startActivity(intent_login);
 						finish();
 					}*/
+					
 				} 
 				else {
+					
+					Intent intent = new Intent(SplashActivity.this,CuisinesActivity.class);
+					startActivity(intent);
 					Log.v("SPLASH_SCREEN", "You are not online!!!!");
-					showprogress(false, "", "");
-					message("Please check you internet connection!!");
-					finish();
+					
+					//message("Please check your internet connection!!");
+				  this.finish();
 				}
-				showprogress(false, "", "");
-			}
-		});
-		t.start();
-	}
-	private void getCityInfo() {
-		
-		try {
 			
-			appStatus = AppStatus.getInstance(this);
-			List<NameValuePair> params = new ArrayList<NameValuePair>(3);			
-			params.add(new BasicNameValuePair("lat","18.52043"));
-			params.add(new BasicNameValuePair("lon","73.856744"));
-			params.add(new BasicNameValuePair("apikey", Constants.AUTH_KEY));
-
-			String strJsonReponse = RestClient.getInstance(this).doApiCall(Constants.strLocation, "GET", params);
-			
-			Log.d("Data Response...######",String.valueOf(strJsonReponse));
-
-			// Fetching web service Response
-			// String strJsonReponse =
-			// "[{\"title\":\"Invitation through Email\",\"user\":{\"email\":\"as@as.com\"},\"created_at\":\"2012-04-09T05:53:31Z\",\"id\":43},{\"title\":\"Sample Victory\",\"user\":{\"email\":\"mahesh@yopmail.com\"},\"created_at\":\"2012-04-10T15:56:32Z\",\"id\":49}]";
-			
-				JSONObject responseObj=new JSONObject(strJsonReponse);
-				JSONObject localityObj=responseObj.getJSONObject("locality");
-				cityName=localityObj.getString("city_name");
-				cityId=localityObj.getString("city_id");
-				Log.d("city Id", cityId);
-				Log.d("city Name", cityName);
 				
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	
 	}
+//	private void getCityInfo() {
+//		
+//		try {
+//			
+//			appStatus = AppStatus.getInstance(this);
+//			List<NameValuePair> params = new ArrayList<NameValuePair>(3);			
+//			params.add(new BasicNameValuePair("lat","18.52043"));
+//			params.add(new BasicNameValuePair("lon","73.856744"));
+//			params.add(new BasicNameValuePair("apikey", Constants.AUTH_KEY));
+//
+//			String strJsonReponse = RestClient.getInstance(this).doApiCall(Constants.strLocation, "GET", params);
+//			
+//			Log.d("Data Response...######",String.valueOf(strJsonReponse));
+//
+//			// Fetching web service Responseshowprogress(true, "Offline", "check your internet connection");
+//			// String strJsonReponse =
+//			// "[{\"title\":\"Invitation through Email\",\"user\":{\"email\":\"as@as.com\"},\"created_at\":\"2012-04-09T05:53:31Z\",\"id\":43},{\"title\":\"Sample Victory\",\"user\":{\"email\":\"mahesh@yopmail.com\"},\"created_at\":\"2012-04-10T15:56:32Z\",\"id\":49}]";
+//			
+//				JSONObject responseObj=new JSONObject(strJsonReponse);
+//				JSONObject localityObj=responseObj.getJSONObject("locality");
+//				cityName=localityObj.getString("city_name");
+//				cityId=localityObj.getString("city_id");
+//				Log.d("city Id", cityId);
+//				Log.d("city Name", cityName);
+//				
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 	void showprogress(final boolean show, final String title, final String msg) {
 		handler.post(new Runnable() {
 			@Override

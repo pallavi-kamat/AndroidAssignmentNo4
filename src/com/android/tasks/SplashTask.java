@@ -11,17 +11,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.android.ZomatoApplication.CuisinesActivity;
+import com.android.ZomatoApplication.SplashActivity;
 import com.android.helpers.Constants;
 import com.android.restClient.RestClient;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
 
 public class SplashTask extends AsyncTask<String, Void, String>{
-	Context context;
+	SplashActivity context;
+	Handler mhandler;
 
-	public SplashTask(Context context) {
+	public SplashTask(SplashActivity context) {
 		this.context=context;
 	}
 	@Override
@@ -59,6 +62,7 @@ public class SplashTask extends AsyncTask<String, Void, String>{
 			Intent intent = new Intent(context,	CuisinesActivity.class);
 			intent.putExtra("cityId",cityId);
 			context.startActivity(intent);
+			context.finish();
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

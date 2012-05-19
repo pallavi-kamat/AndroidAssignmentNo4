@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:background="@drawable/tomato2"
+    android:orientation="vertical"
+    android:visibility="visible"
+    android:layout_marginBottom="300dp" >
 
     <TextView
         android:id="@+id/textName"
@@ -10,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:padding="10dp"
-        android:textColor="#4169e1" />
+        android:textColor="#a52a2a"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textAddress"
@@ -19,7 +23,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/textName"
         android:padding="10dp"
-        android:textColor="#00bfff" />
+        android:textColor="#0000cd"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textCuisines"
@@ -27,8 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/textAddress"
-        android:padding="10dp"
-        android:textColor="#00bfff" />
+        android:padding="5dp"
+        android:textColor="#0000cd"
+        android:textStyle="italic" />
 
     <RatingBar
         android:id="@+id/rating"

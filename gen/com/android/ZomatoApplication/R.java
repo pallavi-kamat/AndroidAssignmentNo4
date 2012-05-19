@@ -11,25 +11,37 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int cuisines1=0x7f020000;
-        public static final int food=0x7f020001;
-        public static final int home1=0x7f020002;
-        public static final int home2=0x7f020003;
-        public static final int home3=0x7f020004;
-        public static final int hotel2=0x7f020005;
-        public static final int hotels=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int logo=0x7f020008;
-        public static final int mumbai=0x7f020009;
-        public static final int tomato1=0x7f02000a;
-        public static final int z=0x7f02000b;
+        public static final int arrow1=0x7f020000;
+        public static final int arrow2=0x7f020001;
+        public static final int arrow3=0x7f020002;
+        public static final int bg1=0x7f020003;
+        public static final int bg2=0x7f020004;
+        public static final int bg3=0x7f020005;
+        public static final int bg4=0x7f020006;
+        public static final int bg5=0x7f020007;
+        public static final int cuisines1=0x7f020008;
+        public static final int food=0x7f020009;
+        public static final int home1=0x7f02000a;
+        public static final int home2=0x7f02000b;
+        public static final int home3=0x7f02000c;
+        public static final int hotel2=0x7f02000d;
+        public static final int hotels=0x7f02000e;
+        public static final int ic_launcher=0x7f02000f;
+        public static final int logo=0x7f020010;
+        public static final int mumbai=0x7f020011;
+        public static final int tomato1=0x7f020012;
+        public static final int tomato2=0x7f020013;
+        public static final int tomato3=0x7f020014;
+        public static final int tomato4=0x7f020015;
+        public static final int z=0x7f020016;
     }
     public static final class id {
+        public static final int img=0x7f050002;
         public static final int list=0x7f050000;
-        public static final int rating=0x7f050004;
-        public static final int text=0x7f050005;
-        public static final int textAddress=0x7f050002;
-        public static final int textCuisines=0x7f050003;
+        public static final int rating=0x7f050005;
+        public static final int text=0x7f050006;
+        public static final int textAddress=0x7f050003;
+        public static final int textCuisines=0x7f050004;
         public static final int textName=0x7f050001;
     }
     public static final class layout {
